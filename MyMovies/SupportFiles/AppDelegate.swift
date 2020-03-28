@@ -17,8 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
+        let navigationController = UINavigationController()
         let mainViewController = MainTabBarController()
-        window?.rootViewController = mainViewController
+        navigationController.viewControllers = [mainViewController]
+        window?.rootViewController = navigationController
         return true
     }
 

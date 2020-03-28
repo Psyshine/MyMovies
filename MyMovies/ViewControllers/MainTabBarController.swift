@@ -20,6 +20,8 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
        
         setupTabBar()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
     
 
@@ -56,4 +58,7 @@ class MainTabBarController: UITabBarController {
         self.selectedIndex = 0
         self.selectedViewController = moviesViewController
     }
+    
+    
+    
 }

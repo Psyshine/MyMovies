@@ -9,28 +9,28 @@
 import UIKit
 
 class SerialsTableViewController: UITableViewController {
-
+    
+    // MARK: - Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-     tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        tableView.rowHeight = 100
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        super.tabBarController?.title = "Serials"
+    }
+    
     // MARK: - Table view data source
-
-  
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 2
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieTableViewCell
-
-        // Configure the cell...
-
+        cell.configCellWith()
         return cell
     }
     
