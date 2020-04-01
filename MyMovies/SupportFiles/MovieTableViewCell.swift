@@ -26,10 +26,18 @@ class MovieTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configCellWith() {
-        self.filmNameLabel?.text = "Name"
-        self.filmYearLabel.text = "Year"
-        self.filmRatingLabel.text = "Rating"
-        self.filmImageView.image = UIImage.init(named: "no_image")
+    func configCellWith(with movie: Welcome) {
+        self.filmNameLabel?.text = movie.originalTitle
+        self.filmYearLabel.text = movie.releaseDate
+        self.filmRatingLabel.text = String(movie.popularity)
+//        self.filmImageView.image = UIImage.init(named: "no_image")
+        DispatchQueue.global().async {
+            let stringURL = "https://image.tmdb.org/t/p/w500/" + movie.posterPath
+               guard let imageURL = URL(string: stringURL) else { return }
+               guard let imageData = try? Data(contentsOf: imageURL) else { return }
+               DispatchQueue.main.async {
+                   self.filmImageView.image = UIImage(data: imageData)
+               }
     }
+}
 }

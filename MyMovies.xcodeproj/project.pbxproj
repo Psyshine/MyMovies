@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E49A10124332DE100345942 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A10024332DE100345942 /* Movie.swift */; };
+		8E49A10324332DF700345942 /* TVSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A10224332DF700345942 /* TVSeason.swift */; };
+		8E49A1062433345100345942 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1052433345100345942 /* NetworkManager.swift */; };
 		8E958952242BE775001C4FF9 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E958950242BE775001C4FF9 /* MovieTableViewCell.swift */; };
 		8E958953242BE775001C4FF9 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E958951242BE775001C4FF9 /* MovieTableViewCell.xib */; };
 		8EB86DF9242B87FD002FD46A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB86DF8242B87FD002FD46A /* AppDelegate.swift */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E49A10024332DE100345942 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		8E49A10224332DF700345942 /* TVSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeason.swift; sourceTree = "<group>"; };
+		8E49A1052433345100345942 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8E958950242BE775001C4FF9 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		8E958951242BE775001C4FF9 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
 		8EB86DF5242B87FD002FD46A /* MyMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +49,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E49A0FE24332C9A00345942 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8EB86E03242B8807002FD46A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8E49A0FF24332DCC00345942 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8E49A10024332DE100345942 /* Movie.swift */,
+				8E49A10224332DF700345942 /* TVSeason.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8E49A1042433343400345942 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8E49A1052433345100345942 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		8E95894E242BE706001C4FF9 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,10 +112,12 @@
 		8EB86DF7242B87FD002FD46A /* MyMovies */ = {
 			isa = PBXGroup;
 			children = (
+				8E49A1042433343400345942 /* Managers */,
+				8E49A0FF24332DCC00345942 /* Models */,
 				8E95894E242BE706001C4FF9 /* SupportFiles */,
 				8EB86E0E242B8919002FD46A /* ViewControllers */,
 				8E95894F242BE719001C4FF9 /* Resources */,
-				8EB86E03242B8807002FD46A /* LaunchScreen.storyboard */,
+				8E49A0FE24332C9A00345942 /* Storyboards */,
 			);
 			path = MyMovies;
 			sourceTree = "<group>";
@@ -171,9 +204,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E49A1062433345100345942 /* NetworkManager.swift in Sources */,
+				8E49A10124332DE100345942 /* Movie.swift in Sources */,
 				8EB86E10242B8935002FD46A /* MoviesTableViewController.swift in Sources */,
 				8EB86DF9242B87FD002FD46A /* AppDelegate.swift in Sources */,
 				8E958952242BE775001C4FF9 /* MovieTableViewCell.swift in Sources */,
+				8E49A10324332DF700345942 /* TVSeason.swift in Sources */,
 				8EB86E12242B8957002FD46A /* SerialsTableViewController.swift in Sources */,
 				8EB86E0D242B884A002FD46A /* MainTabBarController.swift in Sources */,
 				8EB86E14242B8967002FD46A /* FavoriteTableViewController.swift in Sources */,

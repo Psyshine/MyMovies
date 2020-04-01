@@ -10,11 +10,16 @@ import UIKit
 
 class MoviesTableViewController: UITableViewController {
 
+    var movies = [Welcome]()
     // MARK: - Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.rowHeight = 100
+        NetworkManager.shared.fetchData { (movies) in
+            self.movies = movies
+            print(movies)
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -25,14 +30,14 @@ navigationController?.navigationBar.prefersLargeTitles = true
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return movies.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MovieTableViewCell
-
-        cell.configCellWith()
+        let movie = movies[indexPath.row]
+        cell.configCellWith(with: movie)
 
         return cell
     }

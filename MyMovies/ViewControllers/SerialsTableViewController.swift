@@ -30,7 +30,7 @@ class SerialsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieTableViewCell
-        cell.configCellWith()
+//        cell.configCellWith()
         return cell
     }
     
