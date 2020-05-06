@@ -17,16 +17,9 @@ class NetworkManager {
         "api_key": "a450b29fc995d088c8cbde0f9d1b910d"
     ]
     
-//    let queryItems = [NSURLQueryItem(name: "id", value: "2121"), NSURLQueryItem(name: "id", value: "3232")]
-//    let urlComps = NSURLComponents(string: "www.apple.com/help")!
-//    urlComps.queryItems = queryItems
-//    let URL = urlComps.URL!
-    
- 
     let queryItems = [NSURLQueryItem(name: "api_key", value: "a450b29fc995d088c8cbde0f9d1b910d")]
     let urlComps = NSURLComponents(string: "https://api.themoviedb.org/3/discover/movie")!
    
-    
    static let shared = NetworkManager()
    
     // MARK: - Public Methods
@@ -38,18 +31,12 @@ class NetworkManager {
         let session = URLSession.shared
         let reguest = URLRequest(url: result)
         
-        
-       
-
         session.dataTask(with: reguest) { (data, response, error) in
             guard let data = data else { return }
             let decoder = JSONDecoder()
-            
             do {
                 let response = try decoder.decode(Welcome.self, from: data)
-              
                 var movies: [Result] = []
-//                movies.append(response)
                 movies = response.results
                 complition(movies)
                
