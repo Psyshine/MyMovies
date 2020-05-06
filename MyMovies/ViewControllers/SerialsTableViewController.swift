@@ -9,7 +9,7 @@
 import UIKit
 
 class SerialsTableViewController: UITableViewController {
-    
+     var movies = [Welcome]()
     // MARK: - Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,20 +18,34 @@ class SerialsTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        NetworkManager.shared.fetchData { (movies) in
+          DispatchQueue.main.async {
+            
+//                        self.movies = movies
+                          self.tableView.reloadData()
+                        
+            
+                    }
+        }
         super.viewWillAppear(animated)
         super.tabBarController?.title = "Serials"
     }
+
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return movies.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieTableViewCell
-//        cell.configCellWith()
-        return cell
+
+       let results = movies[indexPath.row]
+       let movie = results.results[indexPath.row]
+       cell.configCellWith(with: movie)
+print(movie)
+       return cell
     }
     
 

@@ -26,11 +26,13 @@ class MovieTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configCellWith(with movie: Welcome) {
+    func configCellWith(with movie: Result) {
+      
+        
         self.filmNameLabel?.text = movie.originalTitle
         self.filmYearLabel.text = movie.releaseDate
         self.filmRatingLabel.text = String(movie.popularity)
-//        self.filmImageView.image = UIImage.init(named: "no_image")
+        self.filmImageView.image = UIImage.init(named: "no_image")
         DispatchQueue.global().async {
             let stringURL = "https://image.tmdb.org/t/p/w500/" + movie.posterPath
                guard let imageURL = URL(string: stringURL) else { return }

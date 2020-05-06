@@ -25,18 +25,18 @@ class NetworkManager {
  
     let queryItems = [NSURLQueryItem(name: "api_key", value: "a450b29fc995d088c8cbde0f9d1b910d")]
     let urlComps = NSURLComponents(string: "https://api.themoviedb.org/3/discover/movie")!
+   
     
    static let shared = NetworkManager()
    
     // MARK: - Public Methods
-    func fetchData(with complition: @escaping([Welcome]) -> Void) {
-        stringUrl.append("&\(key)=\(value)")
-    
-        
-        guard let url = URL(string: stringUrl) else { return }
-        
+    func fetchData(with complition: @escaping([Result]) -> Void) {
+        let queryItems = [URLQueryItem(name: "api_key", value: "a450b29fc995d088c8cbde0f9d1b910d")]
+        var urlComps = URLComponents(string: "https://api.themoviedb.org/3/discover/movie")!
+        urlComps.queryItems = queryItems
+        let result = urlComps.url!
         let session = URLSession.shared
-        var reguest = URLRequest(url: url)
+        let reguest = URLRequest(url: result)
         
         
        
@@ -44,13 +44,13 @@ class NetworkManager {
         session.dataTask(with: reguest) { (data, response, error) in
             guard let data = data else { return }
             let decoder = JSONDecoder()
+            
             do {
-                print(data)
-                print(response)
                 let response = try decoder.decode(Welcome.self, from: data)
-                print(response )
-                var movies: [Welcome] = []
-                movies.append(response)
+              
+                var movies: [Result] = []
+//                movies.append(response)
+                movies = response.results
                 complition(movies)
                
             } catch let error {
