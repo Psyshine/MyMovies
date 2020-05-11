@@ -26,7 +26,7 @@ class SerialsTableViewController: UITableViewController {
         dataManager.fetchData(with: { (data) in
            print(data)
         }) { (error) in
-            print(error)
+            print("+++++")
         }
     }
 
