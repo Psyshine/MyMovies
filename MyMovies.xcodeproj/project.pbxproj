@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E4704512469530B003F3604 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4704502469530B003F3604 /* DataManager.swift */; };
 		8E49A10124332DE100345942 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A10024332DE100345942 /* Movie.swift */; };
 		8E49A10324332DF700345942 /* TVSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A10224332DF700345942 /* TVSeason.swift */; };
 		8E49A1062433345100345942 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1052433345100345942 /* NetworkManager.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E4704502469530B003F3604 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		8E49A10024332DE100345942 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		8E49A10224332DF700345942 /* TVSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeason.swift; sourceTree = "<group>"; };
 		8E49A1052433345100345942 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				8E49A1052433345100345942 /* NetworkManager.swift */,
+				8E4704502469530B003F3604 /* DataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				8E958952242BE775001C4FF9 /* MovieTableViewCell.swift in Sources */,
 				8E49A10324332DF700345942 /* TVSeason.swift in Sources */,
 				8EB86E12242B8957002FD46A /* SerialsTableViewController.swift in Sources */,
+				8E4704512469530B003F3604 /* DataManager.swift in Sources */,
 				8EB86E0D242B884A002FD46A /* MainTabBarController.swift in Sources */,
 				8EB86E14242B8967002FD46A /* FavoriteTableViewController.swift in Sources */,
 			);

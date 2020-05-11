@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +29,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQn-BO-b1T">
-                        <rect key="frame" x="121" y="66" width="34" height="16"/>
+                        <rect key="frame" x="121" y="66" width="221" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="UUA-T3-o8Q"/>
                         </constraints>
@@ -37,11 +37,10 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wR-g0-glD">
-                        <rect key="frame" x="121" y="86" width="55" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="8wR-g0-glD">
+                        <rect key="frame" x="121" y="86" width="241" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="ZPK-xi-1Od"/>
-                            <constraint firstAttribute="width" constant="55" id="gSC-OH-EmU"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
@@ -59,7 +58,9 @@
                     <constraint firstItem="jG1-Iy-7ZV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IGM-nv-r7T"/>
                     <constraint firstItem="OQn-BO-b1T" firstAttribute="top" secondItem="c0R-dR-anN" secondAttribute="bottom" constant="4" id="No0-1h-J70"/>
                     <constraint firstItem="OQn-BO-b1T" firstAttribute="leading" secondItem="jG1-Iy-7ZV" secondAttribute="trailing" constant="8" id="Xoa-R1-LGs"/>
+                    <constraint firstAttribute="trailing" secondItem="8wR-g0-glD" secondAttribute="trailing" constant="8" id="bIA-rE-7Bb"/>
                     <constraint firstAttribute="bottom" secondItem="jG1-Iy-7ZV" secondAttribute="bottom" constant="8" id="ikP-n2-1Td"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="OQn-BO-b1T" secondAttribute="trailing" constant="8" id="wMq-8N-hez"/>
                     <constraint firstItem="jG1-Iy-7ZV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="xfR-9V-5Rx"/>
                 </constraints>
             </tableViewCellContentView>

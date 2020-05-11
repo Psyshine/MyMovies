@@ -11,26 +11,22 @@ import UIKit
 class MoviesTableViewController: UITableViewController {
 
     var movies = [Result]()
+    
     // MARK: - Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.rowHeight = 100
-//        NetworkManager.shared.fetchData { (movies) in
-//            self.movies = movies
-//        }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 navigationController?.navigationBar.prefersLargeTitles = true
         super.tabBarController?.title = "Movies"
-        NetworkManager.shared.fetchData { (movies) in
+        NetworkManager.shared.fetchData { [weak self] (movies) in
                  DispatchQueue.main.async {
-                   
-                               self.movies = movies
-                                 self.tableView.reloadData()
-                               
-                   
+                    self?.movies = movies
+                    self?.tableView.reloadData()
                            }
                }
     }

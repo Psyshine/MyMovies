@@ -11,26 +11,24 @@ import Foundation
 class NetworkManager {
     // MARK: - Private Properties
     private var stringUrl = "https://api.themoviedb.org/3/discover/movie"
-    let key = "api_key"
-    let value = "a450b29fc995d088c8cbde0f9d1b910d"
-    private let urlParams = [
-        "api_key": "a450b29fc995d088c8cbde0f9d1b910d"
-    ]
-    
-    let queryItems = [NSURLQueryItem(name: "api_key", value: "a450b29fc995d088c8cbde0f9d1b910d")]
-    let urlComps = NSURLComponents(string: "https://api.themoviedb.org/3/discover/movie")!
+   
+    private let apiKey = "a450b29fc995d088c8cbde0f9d1b910d"
+    private let pagesCount = 1
+
    
    static let shared = NetworkManager()
    
     // MARK: - Public Methods
     func fetchData(with complition: @escaping([Result]) -> Void) {
-        let queryItems = [URLQueryItem(name: "api_key", value: "a450b29fc995d088c8cbde0f9d1b910d")]
-        var urlComps = URLComponents(string: "https://api.themoviedb.org/3/discover/movie")!
+        // TODO: add failure complition
+        let queryItems = [URLQueryItem(name:  "api_key", value: apiKey),
+                          URLQueryItem(name: "page", value: String(pagesCount))]
+        var urlComps = URLComponents(string: stringUrl)!
         urlComps.queryItems = queryItems
         let result = urlComps.url!
+       
         let session = URLSession.shared
         let reguest = URLRequest(url: result)
-        
         session.dataTask(with: reguest) { (data, response, error) in
             guard let data = data else { return }
             let decoder = JSONDecoder()

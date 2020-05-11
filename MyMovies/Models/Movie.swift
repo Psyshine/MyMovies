@@ -143,5 +143,11 @@ enum OriginalLanguage: String, Codable {
     case ja = "ja"
     case ko = "ko"
     case tl = "tl"
+    case zh = "zh"
+    case fr = "fr"
+    case de = "de"
+    case it = "it"
+    case cn = "cn"
+    case `is` = "is"
 }
 
