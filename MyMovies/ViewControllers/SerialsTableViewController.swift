@@ -11,7 +11,7 @@ import UIKit
 class SerialsTableViewController: UITableViewController {
     
     
-    var movies = [Welcome]()
+    var movies = [Result]()
     let dataManager = DataManager()
    
     
@@ -23,11 +23,9 @@ class SerialsTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        dataManager.fetchData(with: { (data) in
-           print(data)
-        }) { (error) in
-            print("+++++")
-        }
+        super.tabBarController?.title = "Serials"
+        self.movies = dataManager.getMovies()
+       
     }
 
     

@@ -23,7 +23,7 @@ class MoviesTableViewController: UITableViewController {
         super.viewWillAppear(animated)
 navigationController?.navigationBar.prefersLargeTitles = true
         super.tabBarController?.title = "Movies"
-        NetworkManager.shared.fetchData { [weak self] (movies) in
+        OldManager.shared.fetchData { [weak self] (movies) in
                  DispatchQueue.main.async {
                     self?.movies = movies
                     self?.tableView.reloadData()
