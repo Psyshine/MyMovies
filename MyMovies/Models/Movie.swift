@@ -148,6 +148,8 @@ enum OriginalLanguage: String, Codable {
     case de = "de"
     case it = "it"
     case cn = "cn"
+    case id = "id"
+    case ru = "ru"
     case `is` = "is"
 }
 

@@ -9,15 +9,25 @@
 import Foundation
 
 class DataManager {
-    
+    // MARK: - Private Properties
     private let parsingManager = ParsingManager()
+    private let networkManager = NetworkManager()
     private var movies = [Result]()
     
-    func getMovies() -> [Result]{
-        parsingManager.fetchMovie { (welcome) in
-            print(welcome.results)
-            self.movies = welcome.results
+    // MARK: - Public Methods
+    func getMovies(with pageNumber: Int,succes: (([Result]) -> ())?, failure: ((Error?) -> ())?) {
+        networkManager.fetchData(with: pageNumber, success: { (data) in
+            guard let data = data else { return }
+
+            self.parsingManager.parsData(with: data, succes: { (welcome) in
+                 let welcome = welcome
+                self.movies.append(contentsOf: welcome.results)
+            }) { (error) in
+                print(error)
+            }
+            succes?(self.movies)
+        }) { (error) in
+            failure?(error)
         }
-        return movies
     }
 }

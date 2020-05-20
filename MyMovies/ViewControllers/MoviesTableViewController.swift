@@ -9,8 +9,11 @@
 import UIKit
 
 class MoviesTableViewController: UITableViewController {
-
-    var movies = [Result]()
+    
+    // MARK: - Private Properties
+    private var movies = [Result]()
+    private let dataManager = DataManager()
+    private var nextPage = 1
     
     // MARK: - Life cycle methods
     override func viewDidLoad() {
@@ -21,76 +24,48 @@ class MoviesTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = true
         super.tabBarController?.title = "Movies"
-        OldManager.shared.fetchData { [weak self] (movies) in
-                 DispatchQueue.main.async {
-                    self?.movies = movies
-                    self?.tableView.reloadData()
-                           }
-               }
+        loadData(from: nextPage)
     }
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return movies.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MovieTableViewCell
-        
         let movie = movies[indexPath.row]
         cell.configCellWith(with: movie)
-
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        var curentPage = 1
+        curentPage = Int(ceil(Double(indexPath.row / 20)) + 1)
+        nextPage = curentPage + 1
+        print( indexPath.row, curentPage, nextPage)
+        
+        if indexPath.row == (movies.count - 1) {
+            let spinner = UIActivityIndicatorView(style: .medium)
+            spinner.startAnimating()
+            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(144))
+            loadData(from: nextPage)
+            self.tableView.tableFooterView = spinner
+            self.tableView.tableFooterView?.isHidden = false
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    // MARK: - Private Methods
+    private func loadData(from page: Int) {
+        dataManager.getMovies(with: page, succes: { [weak self] (results) in
+            DispatchQueue.main.async {
+                self?.movies = results
+                self?.tableView.reloadData()
+            }
+        }) { (error) in
+            print(error)
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
