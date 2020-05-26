@@ -11,7 +11,7 @@ import Foundation
 class NetworkManager {
     
     // MARK: - Private Properties
-    private var stringUrl = "https://api.themoviedb.org/3/discover/movie"
+    private var stringUrl = "htps://api.themoviedb.org/3/discover/movie"
     private let apiKey = "a450b29fc995d088c8cbde0f9d1b910d"
     
     // MARK: - Public Methods
@@ -25,7 +25,10 @@ class NetworkManager {
         let reguest = URLRequest(url: result)
         session.dataTask(with: reguest) { (data, response, error) in
             if let error = error {
-                failure(error)
+                print(error.localizedDescription)
+                
+                
+                failure(ErrorHelper.serverError)
                 return
             }
             success(data)

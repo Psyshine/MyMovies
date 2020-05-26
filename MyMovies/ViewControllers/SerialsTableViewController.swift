@@ -63,6 +63,7 @@ class SerialsTableViewController: UITableViewController {
                 self?.tableView.reloadData()
             }
         }) { (error) in
+            
             print(error)
         }
     }

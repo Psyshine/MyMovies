@@ -31,7 +31,12 @@ class MoviesTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
+        if movies.count > 0 {
+            return movies.count
+        } else {
+            TableViewHelper.EmptyMessage(message: "Erroooor!", viewController: self)
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,7 +70,7 @@ class MoviesTableViewController: UITableViewController {
                 self?.tableView.reloadData()
             }
         }) { (error) in
-            print(error)
+            print(error?.localizedDescription)
         }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E1321B7247703D6007F7396 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1321B6247703D6007F7396 /* TableViewHelper.swift */; };
 		8E4704512469530B003F3604 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4704502469530B003F3604 /* NetworkManager.swift */; };
 		8E470453246A9672003F3604 /* ParsingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E470452246A9672003F3604 /* ParsingManager.swift */; };
 		8E470455246A9C11003F3604 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E470454246A9C11003F3604 /* DataManager.swift */; };
@@ -21,9 +22,11 @@
 		8EB86E10242B8935002FD46A /* MoviesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB86E0F242B8935002FD46A /* MoviesTableViewController.swift */; };
 		8EB86E12242B8957002FD46A /* SerialsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB86E11242B8957002FD46A /* SerialsTableViewController.swift */; };
 		8EB86E14242B8967002FD46A /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB86E13242B8967002FD46A /* FavoriteTableViewController.swift */; };
+		8EC5909A247BAF4800311945 /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC59099247BAF4800311945 /* ErrorHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E1321B6247703D6007F7396 /* TableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
 		8E4704502469530B003F3604 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8E470452246A9672003F3604 /* ParsingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingManager.swift; sourceTree = "<group>"; };
 		8E470454246A9C11003F3604 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		8EB86E0F242B8935002FD46A /* MoviesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewController.swift; sourceTree = "<group>"; };
 		8EB86E11242B8957002FD46A /* SerialsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialsTableViewController.swift; sourceTree = "<group>"; };
 		8EB86E13242B8967002FD46A /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
+		8EC59099247BAF4800311945 /* ErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 				8EB86E06242B8807002FD46A /* Info.plist */,
 				8E958950242BE775001C4FF9 /* MovieTableViewCell.swift */,
 				8E958951242BE775001C4FF9 /* MovieTableViewCell.xib */,
+				8E1321B6247703D6007F7396 /* TableViewHelper.swift */,
+				8EC59099247BAF4800311945 /* ErrorHelper.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -217,10 +223,12 @@
 				8EB86DF9242B87FD002FD46A /* AppDelegate.swift in Sources */,
 				8E958952242BE775001C4FF9 /* MovieTableViewCell.swift in Sources */,
 				8E49A10324332DF700345942 /* TVSeason.swift in Sources */,
+				8E1321B7247703D6007F7396 /* TableViewHelper.swift in Sources */,
 				8EB86E12242B8957002FD46A /* SerialsTableViewController.swift in Sources */,
 				8E4704512469530B003F3604 /* NetworkManager.swift in Sources */,
 				8EB86E0D242B884A002FD46A /* MainTabBarController.swift in Sources */,
 				8EB86E14242B8967002FD46A /* FavoriteTableViewController.swift in Sources */,
+				8EC5909A247BAF4800311945 /* ErrorHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
