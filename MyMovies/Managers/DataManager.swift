@@ -15,7 +15,7 @@ class DataManager {
     private var movies = [Result]()
     
     // MARK: - Public Methods
-    func getMovies(with pageNumber: Int,succes: (([Result]) -> ())?, failure: ((Error?) -> ())?) {
+    func getMovies(with pageNumber: Int,succes: (([Result]) -> ())?, failure: ((ErrorHelper?) -> ())?) {
         networkManager.fetchData(with: pageNumber, success: { (data) in
             guard let data = data else { return }
 
@@ -27,7 +27,7 @@ class DataManager {
             }
             succes?(self.movies)
         }) { (error) in
-            failure?(error)
+            failure?(ErrorHelper.responseError)
         }
     }
 }

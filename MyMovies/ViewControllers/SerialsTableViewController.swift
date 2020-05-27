@@ -61,10 +61,21 @@ class SerialsTableViewController: UITableViewController {
                 self?.movies = results
                 
                 self?.tableView.reloadData()
+                
             }
         }) { (error) in
-            
-            print(error)
-        }
+            DispatchQueue.main.async {
+                    if let error = error {
+                    let errorMessage = [error.failureReason, error.recoverySuggestion].compactMap({ $0 }).joined(separator: ". ")
+                    let alertVC = UIAlertController(
+                        title: error.errorDescription,
+                        message: errorMessage,
+                        preferredStyle: .alert)
+                    let action = UIAlertAction(title: "OK", style: .default) { (_) -> Void in }
+                    alertVC.addAction(action)
+                        self.present(alertVC, animated: true, completion: nil)
+            }
     }
+}
+}
 }

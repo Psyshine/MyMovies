@@ -10,14 +10,14 @@ import Foundation
 
 class ParsingManager {
     // MARK: - Public Methods
-    func parsData(with data: Data, succes: ((Welcome) -> ())?, failure: ((Error?) -> ())?) {
+    func parsData(with data: Data, succes: ((Welcome) -> ())?, failure: ((ErrorHelper?) -> ())?) {
         let decoder = JSONDecoder()
         do {
             let response = try decoder.decode(Welcome.self, from: data)
             succes!(response)
         } catch let error {
             print(error)
-            failure!(error)
+            failure!(ErrorHelper.responseError)
         }
     }
 }

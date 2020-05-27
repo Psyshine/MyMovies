@@ -15,7 +15,7 @@ class NetworkManager {
     private let apiKey = "a450b29fc995d088c8cbde0f9d1b910d"
     
     // MARK: - Public Methods
-    func fetchData(with pageNumber: Int, success: @escaping (_ response: Data?) -> Void, or failure: @escaping (_ error: Error?) -> Void) {
+    func fetchData(with pageNumber: Int, success: @escaping (_ response: Data?) -> Void, or failure: @escaping (_ error: ErrorHelper) -> Void) {
         let queryItems = [URLQueryItem(name:  "api_key", value: apiKey),
                           URLQueryItem(name: "page", value: String(pageNumber))]
         var urlComps = URLComponents(string: stringUrl)!
@@ -25,8 +25,8 @@ class NetworkManager {
         let reguest = URLRequest(url: result)
         session.dataTask(with: reguest) { (data, response, error) in
             if let error = error {
-                print(error.localizedDescription)
-                
+               
+                print(ErrorHelper.serverError.localizedDescription)
                 
                 failure(ErrorHelper.serverError)
                 return
