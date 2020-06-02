@@ -23,7 +23,7 @@ class DataManager {
                  let welcome = welcome
                 self.movies.append(contentsOf: welcome.results)
             }) { (error) in
-                print(error)
+                failure?(ErrorHelper.responseError)
             }
             succes?(self.movies)
         }) { (error) in
